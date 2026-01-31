@@ -2,95 +2,106 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* FPV SHOOTER GAME - Design System
+ * Theme: Dark military with neon cyan/orange accents
+ * Inspired by: Call of Duty, PUBG, Warzone
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core backgrounds - Deep space black with slight blue tint */
+    --background: 220 20% 4%;
+    --foreground: 200 20% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card surfaces - Slightly lighter with transparency support */
+    --card: 220 18% 8%;
+    --card-foreground: 200 20% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Popover/Modal surfaces */
+    --popover: 220 20% 6%;
+    --popover-foreground: 200 20% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Electric Cyan (main action color) */
+    --primary: 185 100% 50%;
+    --primary-foreground: 220 20% 4%;
+    --primary-glow: 185 100% 60%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Deep military blue */
+    --secondary: 215 30% 15%;
+    --secondary-foreground: 200 20% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted surfaces */
+    --muted: 220 15% 12%;
+    --muted-foreground: 215 15% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Orange/Amber (warnings, highlights) */
+    --accent: 25 100% 50%;
+    --accent-foreground: 220 20% 4%;
+    --accent-glow: 25 100% 60%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive - Red (damage, danger) */
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Success - Green (health, allies) */
+    --success: 145 80% 45%;
+    --success-foreground: 220 20% 4%;
 
-    --radius: 0.5rem;
+    /* Warning - Yellow */
+    --warning: 45 100% 50%;
+    --warning-foreground: 220 20% 4%;
 
-    --sidebar-background: 0 0% 98%;
+    /* UI Elements */
+    --border: 215 20% 20%;
+    --input: 220 15% 12%;
+    --ring: 185 100% 50%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --radius: 0.25rem;
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Custom game-specific colors */
+    --neon-cyan: 185 100% 50%;
+    --neon-orange: 25 100% 55%;
+    --neon-red: 0 100% 60%;
+    --neon-green: 145 100% 50%;
+    --neon-purple: 270 100% 60%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Health colors */
+    --health-full: 145 80% 45%;
+    --health-medium: 45 100% 50%;
+    --health-low: 0 85% 55%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    /* Team colors */
+    --team-blue: 210 100% 55%;
+    --team-red: 0 85% 55%;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    /* Sidebar */
+    --sidebar-background: 220 18% 6%;
+    --sidebar-foreground: 200 20% 90%;
+    --sidebar-primary: 185 100% 50%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 200 20% 95%;
+    --sidebar-border: 215 20% 18%;
+    --sidebar-ring: 185 100% 50%;
 
-    --sidebar-border: 220 13% 91%;
+    /* Gradients */
+    --gradient-dark: linear-gradient(180deg, hsl(220 20% 6%) 0%, hsl(220 20% 2%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 18% 10%) 0%, hsl(220 18% 6%) 100%);
+    --gradient-cyan: linear-gradient(135deg, hsl(185 100% 50%) 0%, hsl(200 100% 45%) 100%);
+    --gradient-orange: linear-gradient(135deg, hsl(25 100% 55%) 0%, hsl(15 100% 50%) 100%);
+    --gradient-danger: linear-gradient(135deg, hsl(0 85% 55%) 0%, hsl(350 85% 45%) 100%);
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Shadows & Glows */
+    --shadow-cyan: 0 0 20px hsl(185 100% 50% / 0.4);
+    --shadow-orange: 0 0 20px hsl(25 100% 55% / 0.4);
+    --shadow-card: 0 4px 24px hsl(220 20% 0% / 0.6);
+    --glow-intensity: 0.6;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Dark mode is default - same values */
   }
 }
 
@@ -100,6 +111,252 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-rajdhani antialiased;
+    background: var(--gradient-dark);
+    min-height: 100vh;
   }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron font-bold tracking-wider;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/30;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+}
+
+@layer components {
+  /* Neon text effects */
+  .text-glow-cyan {
+    text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.8),
+                 0 0 20px hsl(var(--neon-cyan) / 0.6),
+                 0 0 40px hsl(var(--neon-cyan) / 0.4);
+  }
+
+  .text-glow-orange {
+    text-shadow: 0 0 10px hsl(var(--neon-orange) / 0.8),
+                 0 0 20px hsl(var(--neon-orange) / 0.6),
+                 0 0 40px hsl(var(--neon-orange) / 0.4);
+  }
+
+  .text-glow-red {
+    text-shadow: 0 0 10px hsl(var(--neon-red) / 0.8),
+                 0 0 20px hsl(var(--neon-red) / 0.6);
+  }
+
+  /* Box glow effects */
+  .glow-cyan {
+    box-shadow: 0 0 15px hsl(var(--neon-cyan) / 0.5),
+                0 0 30px hsl(var(--neon-cyan) / 0.3),
+                inset 0 0 15px hsl(var(--neon-cyan) / 0.1);
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 15px hsl(var(--neon-orange) / 0.5),
+                0 0 30px hsl(var(--neon-orange) / 0.3),
+                inset 0 0 15px hsl(var(--neon-orange) / 0.1);
+  }
+
+  /* Military panel style */
+  .panel-military {
+    @apply relative bg-card border border-border rounded-sm;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .panel-military::before {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.05) 0%, transparent 50%);
+  }
+
+  /* Corner decorations */
+  .corner-cuts {
+    clip-path: polygon(
+      0 10px, 10px 0, calc(100% - 10px) 0, 100% 10px,
+      100% calc(100% - 10px), calc(100% - 10px) 100%,
+      10px 100%, 0 calc(100% - 10px)
+    );
+  }
+
+  /* Scan line effect */
+  .scanlines::after {
+    content: '';
+    @apply absolute inset-0 pointer-events-none opacity-5;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(var(--foreground) / 0.03) 2px,
+      hsl(var(--foreground) / 0.03) 4px
+    );
+  }
+
+  /* HUD element styles */
+  .hud-element {
+    @apply bg-background/80 backdrop-blur-sm border border-primary/30 rounded-sm;
+  }
+
+  /* Crosshair styles */
+  .crosshair {
+    @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-50;
+  }
+
+  /* Ammo counter style */
+  .ammo-display {
+    @apply font-mono text-4xl font-bold tracking-tighter;
+  }
+
+  /* Health bar gradient */
+  .health-gradient {
+    background: linear-gradient(90deg, 
+      hsl(var(--health-low)) 0%, 
+      hsl(var(--health-medium)) 50%, 
+      hsl(var(--health-full)) 100%
+    );
+  }
+
+  /* Kill feed animation */
+  .killfeed-item {
+    @apply animate-slide-in-right;
+  }
+
+  /* Menu item hover effect */
+  .menu-item-hover {
+    @apply relative overflow-hidden;
+  }
+
+  .menu-item-hover::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent -translate-x-full transition-transform duration-300;
+  }
+
+  .menu-item-hover:hover::before {
+    @apply translate-x-0;
+  }
+
+  /* Loading bar */
+  .loading-bar {
+    @apply h-1 bg-muted overflow-hidden rounded-full;
+  }
+
+  .loading-bar-fill {
+    @apply h-full bg-gradient-to-r from-primary to-accent rounded-full;
+    animation: loading 2s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  /* Font families */
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  .font-mono-game {
+    font-family: 'Share Tech Mono', monospace;
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-dark {
+    background: var(--gradient-dark);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .bg-gradient-cyan {
+    background: var(--gradient-cyan);
+  }
+
+  .bg-gradient-orange {
+    background: var(--gradient-orange);
+  }
+
+  /* Border styles */
+  .border-glow-cyan {
+    border-color: hsl(var(--neon-cyan));
+    box-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.3);
+  }
+
+  .border-glow-orange {
+    border-color: hsl(var(--neon-orange));
+    box-shadow: 0 0 10px hsl(var(--neon-orange) / 0.3);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes loading {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% { 
+    opacity: 0.8;
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out forwards;
 }

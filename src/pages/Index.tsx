@@ -1,12 +1,44 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+/**
+ * Main Index Page - Game Router
+ * Routes between different game screens based on state
+ */
+
+import { useGameStore } from '@/stores/gameStore';
+import LandingPage from './LandingPage';
+import MainMenu from './MainMenu';
+import LobbyScreen from './LobbyScreen';
+import LoadoutScreen from './LoadoutScreen';
+import MapSelectScreen from './MapSelectScreen';
+import SettingsScreen from './SettingsScreen';
+import GameScreen from './GameScreen';
 
 const Index = () => {
+  const currentScreen = useGameStore((state) => state.ui.currentScreen);
+
+  const renderScreen = () => {
+    switch (currentScreen) {
+      case 'landing':
+        return <LandingPage />;
+      case 'menu':
+        return <MainMenu />;
+      case 'lobby':
+        return <LobbyScreen />;
+      case 'loadout':
+        return <LoadoutScreen />;
+      case 'maps':
+        return <MapSelectScreen />;
+      case 'settings':
+        return <SettingsScreen />;
+      case 'game':
+        return <GameScreen />;
+      default:
+        return <LandingPage />;
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      {renderScreen()}
     </div>
   );
 };
